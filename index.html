@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybercrime Report Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 py-8">
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
+        <h1 class="text-3xl font-semibold text-center text-blue-700 mb-6">Cybercrime Report Generator</h1>
+        <form id="report-form" class="space-y-6">
+            <!-- Victim Details -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Victim Details:</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="victimName" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Address</label>
+                        <input type="text" id="victimAddress" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="text" id="victimPhone" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="victimEmail" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Incident Details -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Incident Details:</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Date and Time of Incident</label>
+                        <input type="datetime-local" id="incidentDate" class="w-full p-3 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Type of Cybercrime</label>
+                        <select id="crimeType" class="w-full p-3 border border-gray-300 rounded-md" required>
+                            <option value="Phishing">Phishing</option>
+                            <option value="Identity Theft">Identity Theft</option>
+                            <option value="Online Fraud">Online Fraud</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">Description of Incident</label>
+                        <textarea id="incidentDescription" class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scammer Details -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Scammer Details (If Available):</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="scammerName" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="scammerEmail" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="text" id="scammerPhone" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Device</label>
+                        <input type="text" id="scammerDevice" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Age</label>
+                        <input type="number" id="scammerAge" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">SIM Carrier</label>
+                        <input type="text" id="scammerSimCarrier" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">IP Address</label>
+                        <input type="text" id="scammerIpAddress" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                        <input type="date" id="scammerDob" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Social Media Handle</label>
+                        <input type="text" id="scammerSocialMedia" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <!-- New Scammer Details Added -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Location (City, Country)</label>
+                        <input type="text" id="scammerLocation" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email ID Provider</label>
+                        <input type="text" id="scammerEmailProvider" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Bank Account Details</label>
+                        <input type="text" id="scammerBankDetails" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Website/URL</label>
+                        <input type="text" id="scammerWebsite" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Payment Mode</label>
+                        <input type="text" id="scammerPaymentMode" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Victim's Financial Loss</label>
+                        <input type="number" id="victimFinancialLoss" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Scammer's Photo/Document</label>
+                        <input type="file" id="scammerPhoto" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Social Media Links</label>
+                        <input type="text" id="scammerSocialMediaLinks" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investigation Details -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Investigation Details:</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Investigator Name</label>
+                        <input type="text" id="investigatorName" class="w-full p-3 border border-gray-300 rounded-md">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Destination</label>
+                        <select id="destination" class="w-full p-3 border border-gray-300 rounded-md" required>
+                            <option value="Cyber Crime Branch">Cyber Crime Branch</option>
+                            <option value="Local Police Station">Local Police Station</option>
+                            <option value="Forensic Lab">Forensic Lab</option>
+                            <option value="Detective">Detective</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Investigation Agency</label>
+                        <select id="investigationAgency" class="w-full p-3 border border-gray-300 rounded-md" required>
+                            <option value="Mumbai Cyber Crime Cell">Mumbai Cyber Crime Cell</option>
+                            <option value="Delhi Cyber Crime Cell">Delhi Cyber Crime Cell</option>
+                            <option value="CBI">Central Bureau of Investigation (CBI)</option>
+                            <option value="NIA">National Investigation Agency (NIA)</option>
+                            <option value="Police Station">Local Police Station</option>
+                            <option value="ED">Enforcement Directorate (ED)</option>
+                            <option value="FBI">Federal Bureau of Investigation (FBI)</option>
+                            <option value="Interpol">Interpol</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Investigation Status</label>
+                        <select id="investigationStatus" class="w-full p-3 border border-gray-300 rounded-md" required>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">Generate Report</button>
+        </form>
+
+        <div id="generated-report" class="mt-6 hidden bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4">Generated Report</h2>
+            <div id="report-output" class="text-sm text-gray-700"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("report-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Collecting the data from the form
+            const victimName = document.getElementById("victimName").value;
+            const victimAddress = document.getElementById("victimAddress").value;
+            const victimPhone = document.getElementById("victimPhone").value;
+            const victimEmail = document.getElementById("victimEmail").value;
+            const incidentDate = document.getElementById("incidentDate").value;
+            const crimeType = document.getElementById("crimeType").value;
+            const incidentDescription = document.getElementById("incidentDescription").value;
+            
+            const report = `Victim Name: ${victimName}
+Victim Address: ${victimAddress}
+Victim Phone: ${victimPhone}
+Victim Email: ${victimEmail}
+Incident Date: ${incidentDate}
+Crime Type: ${crimeType}
+Incident Description: ${incidentDescription}`;
+
+            document.getElementById("generated-report").classList.remove("hidden");
+            document.getElementById("report-output").textContent = report;
+        });
+    </script>
+</body>
+</html>
