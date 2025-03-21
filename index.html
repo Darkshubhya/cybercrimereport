@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,18 +202,57 @@
             const incidentDate = document.getElementById("incidentDate").value;
             const crimeType = document.getElementById("crimeType").value;
             const incidentDescription = document.getElementById("incidentDescription").value;
+            const scammerName = document.getElementById("scammerName").value;
+            const scammerEmail = document.getElementById("scammerEmail").value;
+            const scammerPhone = document.getElementById("scammerPhone").value;
+            const scammerDevice = document.getElementById("scammerDevice").value;
+            const scammerAge = document.getElementById("scammerAge").value;
+            const scammerSimCarrier = document.getElementById("scammerSimCarrier").value;
+            const scammerIpAddress = document.getElementById("scammerIpAddress").value;
+            const scammerDob = document.getElementById("scammerDob").value;
+            const scammerSocialMedia = document.getElementById("scammerSocialMedia").value;
+            const scammerLocation = document.getElementById("scammerLocation").value;
+            const scammerEmailProvider = document.getElementById("scammerEmailProvider").value;
+            const scammerBankDetails = document.getElementById("scammerBankDetails").value;
+            const scammerWebsite = document.getElementById("scammerWebsite").value;
+            const scammerPaymentMode = document.getElementById("scammerPaymentMode").value;
+            const victimFinancialLoss = document.getElementById("victimFinancialLoss").value;
+            const scammerPhoto = document.getElementById("scammerPhoto").files[0];
+            const scammerSocialMediaLinks = document.getElementById("scammerSocialMediaLinks").value;
             
-            const report = `Victim Name: ${victimName}
-Victim Address: ${victimAddress}
-Victim Phone: ${victimPhone}
-Victim Email: ${victimEmail}
-Incident Date: ${incidentDate}
-Crime Type: ${crimeType}
-Incident Description: ${incidentDescription}`;
-
+            // Displaying the generated report
+            let report = 
+                <p><strong>Victim Name:</strong> ${victimName}</p>
+                <p><strong>Victim Address:</strong> ${victimAddress}</p>
+                <p><strong>Victim Phone:</strong> ${victimPhone}</p>
+                <p><strong>Victim Email:</strong> ${victimEmail}</p>
+                <p><strong>Incident Date:</strong> ${incidentDate}</p>
+                <p><strong>Crime Type:</strong> ${crimeType}</p>
+                <p><strong>Incident Description:</strong> ${incidentDescription}</p>
+                <p><strong>Scammer Name:</strong> ${scammerName}</p>
+                <p><strong>Scammer Email:</strong> ${scammerEmail}</p>
+                <p><strong>Scammer Phone:</strong> ${scammerPhone}</p>
+                <p><strong>Scammer Device:</strong> ${scammerDevice}</p>
+                <p><strong>Scammer Age:</strong> ${scammerAge}</p>
+                <p><strong>Scammer Sim Carrier:</strong> ${scammerSimCarrier}</p>
+                <p><strong>Scammer IP Address:</strong> ${scammerIpAddress}</p>
+                <p><strong>Scammer Date of Birth:</strong> ${scammerDob}</p>
+                <p><strong>Scammer Social Media:</strong> ${scammerSocialMedia}</p>
+                <p><strong>Location:</strong> ${scammerLocation}</p>
+                <p><strong>Email Provider:</strong> ${scammerEmailProvider}</p>
+                <p><strong>Bank Details:</strong> ${scammerBankDetails}</p>
+                <p><strong>Website:</strong> ${scammerWebsite}</p>
+                <p><strong>Payment Mode:</strong> ${scammerPaymentMode}</p>
+                <p><strong>Victim Financial Loss:</strong> ₹${victimFinancialLoss}</p>
+                <p><strong>Social Media Links:</strong> ${scammerSocialMediaLinks}</p>
+            ;
+            
+            document.getElementById("report-output").innerHTML = report;
             document.getElementById("generated-report").classList.remove("hidden");
-            document.getElementById("report-output").textContent = report;
         });
     </script>
+    <footer class=" text-black p-4 text-center mt-8">
+        <p class="text-sm">© 2025, Cybercrime Report Generator. Developed by <strong>Shubham (Vedant Hondre)</strong>. All rights reserved.</p>
+    </footer>
 </body>
 </html>
