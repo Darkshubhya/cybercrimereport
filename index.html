@@ -3,256 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybercrime Report Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Cyber Crime Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn-txt {
+            background-color: blue;
+            color: white;
+        }
+        .btn-pdf {
+            background-color: green;
+            color: white;
         }
     </style>
 </head>
-<body class="bg-gray-50 py-8">
-    <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
-        <h1 class="text-3xl font-semibold text-center text-blue-700 mb-6">Cybercrime Report Generator</h1>
-        <form id="report-form" class="space-y-6">
-            <!-- Victim Details -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Victim Details:</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="victimName" class="w-full p-3 border border-gray-300 rounded-md" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Address</label>
-                        <input type="text" id="victimAddress" class="w-full p-3 border border-gray-300 rounded-md" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="text" id="victimPhone" class="w-full p-3 border border-gray-300 rounded-md" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="victimEmail" class="w-full p-3 border border-gray-300 rounded-md" required>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Incident Details -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Incident Details:</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Date and Time of Incident</label>
-                        <input type="datetime-local" id="incidentDate" class="w-full p-3 border border-gray-300 rounded-md" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Type of Cybercrime</label>
-                        <select id="crimeType" class="w-full p-3 border border-gray-300 rounded-md" required>
-                            <option value="Phishing">Phishing</option>
-                            <option value="Identity Theft">Identity Theft</option>
-                            <option value="Online Fraud">Online Fraud</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="col-span-2">
-                        <label class="block text-sm font-medium text-gray-700">Description of Incident</label>
-                        <textarea id="incidentDescription" class="w-full p-3 border border-gray-300 rounded-md" required></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scammer Details -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Scammer Details (If Available):</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="scammerName" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="scammerEmail" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="text" id="scammerPhone" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Device</label>
-                        <input type="text" id="scammerDevice" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Age</label>
-                        <input type="number" id="scammerAge" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">SIM Carrier</label>
-                        <input type="text" id="scammerSimCarrier" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">IP Address</label>
-                        <input type="text" id="scammerIpAddress" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input type="date" id="scammerDob" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Social Media Handle</label>
-                        <input type="text" id="scammerSocialMedia" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <!-- New Scammer Details Added -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Location (City, Country)</label>
-                        <input type="text" id="scammerLocation" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Email ID Provider</label>
-                        <input type="text" id="scammerEmailProvider" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Bank Account Details</label>
-                        <input type="text" id="scammerBankDetails" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Website/URL</label>
-                        <input type="text" id="scammerWebsite" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Payment Mode</label>
-                        <input type="text" id="scammerPaymentMode" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Victim's Financial Loss</label>
-                        <input type="number" id="victimFinancialLoss" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Scammer's Photo/Document</label>
-                        <input type="file" id="scammerPhoto" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Social Media Links</label>
-                        <input type="text" id="scammerSocialMediaLinks" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Investigation Details -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-sm">
-                <h2 class="text-2xl font-semibold text-blue-600 mb-4">Investigation Details:</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Investigator Name</label>
-                        <input type="text" id="investigatorName" class="w-full p-3 border border-gray-300 rounded-md">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Destination</label>
-                        <select id="destination" class="w-full p-3 border border-gray-300 rounded-md" required>
-                            <option value="Cyber Crime Branch">Cyber Crime Branch</option>
-                            <option value="Local Police Station">Local Police Station</option>
-                            <option value="Forensic Lab">Forensic Lab</option>
-                            <option value="Detective">Detective</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Investigation Agency</label>
-                        <select id="investigationAgency" class="w-full p-3 border border-gray-300 rounded-md" required>
-                            <option value="Mumbai Cyber Crime Cell">Mumbai Cyber Crime Cell</option>
-                            <option value="Delhi Cyber Crime Cell">Delhi Cyber Crime Cell</option>
-                            <option value="CBI">Central Bureau of Investigation (CBI)</option>
-                            <option value="NIA">National Investigation Agency (NIA)</option>
-                            <option value="Police Station">Local Police Station</option>
-                            <option value="ED">Enforcement Directorate (ED)</option>
-                            <option value="FBI">Federal Bureau of Investigation (FBI)</option>
-                            <option value="Interpol">Interpol</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Investigation Status</label>
-                        <select id="investigationStatus" class="w-full p-3 border border-gray-300 rounded-md" required>
-                            <option value="Open">Open</option>
-                            <option value="In Progress">In Progress</option>
-                            <option value="Closed">Closed</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">Generate Report</button>
-        </form>
-
-        <div id="generated-report" class="mt-6 hidden bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-semibold text-blue-700 mb-4">Generated Report</h2>
-            <div id="report-output" class="text-sm text-gray-700"></div>
-        </div>
+<body>
+    <div class="container">
+        <h2>📌 Cyber Crime Report Form</h2>
+        
+        <h3>1️⃣ Complainant Details</h3>
+        <label>Full Name:</label>
+        <input type="text" id="fullName">
+        <label>Contact Number:</label>
+        <input type="text" id="contact">
+        <label>Email Address:</label>
+        <input type="email" id="email">
+        
+        <h3>2️⃣ Victim Details</h3>
+        <label>Victim Name:</label>
+        <input type="text" id="victimName">
+        <label>Victim Contact:</label>
+        <input type="text" id="victimContact">
+        <label>Victim Email:</label>
+        <input type="email" id="victimEmail">
+        
+        <h3>3️⃣ Incident Details</h3>
+        <label>Crime Type:</label>
+        <select id="crimeType">
+            <option value="">Select Crime Type</option>
+            <option value="Online Fraud">Online Fraud</option>
+            <option value="Phishing">Phishing</option>
+        </select>
+        <label>Description:</label>
+        <textarea id="description"></textarea>
+        
+        <h3>4️⃣ Criminal Details</h3>
+        <label>Criminal Name:</label>
+        <input type="text" id="criminalName">
+        <label>Criminal Contact Number:</label>
+        <input type="text" id="criminalContact">
+        <label>Criminal Email Address:</label>
+        <input type="email" id="criminalEmail">
+        <label>Criminal IP Address:</label>
+        <input type="text" id="criminalIP">
+        <label>Devices Used:</label>
+        <input type="text" id="criminalDevices">
+        <label>SIM Carrier:</label>
+        <input type="text" id="criminalSIM">
+        <label>State:</label>
+        <input type="text" id="criminalState">
+        <label>City:</label>
+        <input type="text" id="criminalCity">
+        <label>Other Information:</label>
+        <textarea id="otherInfo"></textarea>
+        
+        <h3>5️⃣ Investigation Officer</h3>
+        <label>Officer Name:</label>
+        <input type="text" id="officerName">
+        <label>Designation:</label>
+        <input type="text" id="officerDesignation">
+        <label>Officer Contact:</label>
+        <input type="text" id="officerContact">
+        
+        <button class="btn btn-txt" onclick="downloadTxt()">Download as TXT</button>
+        <button class="btn btn-pdf" onclick="downloadPdf()">Download as PDF</button>
     </div>
-
     <script>
-        document.getElementById("report-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            // Collecting the data from the form
-            const victimName = document.getElementById("victimName").value;
-            const victimAddress = document.getElementById("victimAddress").value;
-            const victimPhone = document.getElementById("victimPhone").value;
-            const victimEmail = document.getElementById("victimEmail").value;
-            const incidentDate = document.getElementById("incidentDate").value;
-            const crimeType = document.getElementById("crimeType").value;
-            const incidentDescription = document.getElementById("incidentDescription").value;
-            const scammerName = document.getElementById("scammerName").value;
-            const scammerEmail = document.getElementById("scammerEmail").value;
-            const scammerPhone = document.getElementById("scammerPhone").value;
-            const scammerDevice = document.getElementById("scammerDevice").value;
-            const scammerAge = document.getElementById("scammerAge").value;
-            const scammerSimCarrier = document.getElementById("scammerSimCarrier").value;
-            const scammerIpAddress = document.getElementById("scammerIpAddress").value;
-            const scammerDob = document.getElementById("scammerDob").value;
-            const scammerSocialMedia = document.getElementById("scammerSocialMedia").value;
-            const scammerLocation = document.getElementById("scammerLocation").value;
-            const scammerEmailProvider = document.getElementById("scammerEmailProvider").value;
-            const scammerBankDetails = document.getElementById("scammerBankDetails").value;
-            const scammerWebsite = document.getElementById("scammerWebsite").value;
-            const scammerPaymentMode = document.getElementById("scammerPaymentMode").value;
-            const victimFinancialLoss = document.getElementById("victimFinancialLoss").value;
-            const scammerPhoto = document.getElementById("scammerPhoto").files[0];
-            const scammerSocialMediaLinks = document.getElementById("scammerSocialMediaLinks").value;
-            
-            // Displaying the generated report
-            let report = 
-                <p><strong>Victim Name:</strong> ${victimName}</p>
-                <p><strong>Victim Address:</strong> ${victimAddress}</p>
-                <p><strong>Victim Phone:</strong> ${victimPhone}</p>
-                <p><strong>Victim Email:</strong> ${victimEmail}</p>
-                <p><strong>Incident Date:</strong> ${incidentDate}</p>
-                <p><strong>Crime Type:</strong> ${crimeType}</p>
-                <p><strong>Incident Description:</strong> ${incidentDescription}</p>
-                <p><strong>Scammer Name:</strong> ${scammerName}</p>
-                <p><strong>Scammer Email:</strong> ${scammerEmail}</p>
-                <p><strong>Scammer Phone:</strong> ${scammerPhone}</p>
-                <p><strong>Scammer Device:</strong> ${scammerDevice}</p>
-                <p><strong>Scammer Age:</strong> ${scammerAge}</p>
-                <p><strong>Scammer Sim Carrier:</strong> ${scammerSimCarrier}</p>
-                <p><strong>Scammer IP Address:</strong> ${scammerIpAddress}</p>
-                <p><strong>Scammer Date of Birth:</strong> ${scammerDob}</p>
-                <p><strong>Scammer Social Media:</strong> ${scammerSocialMedia}</p>
-                <p><strong>Location:</strong> ${scammerLocation}</p>
-                <p><strong>Email Provider:</strong> ${scammerEmailProvider}</p>
-                <p><strong>Bank Details:</strong> ${scammerBankDetails}</p>
-                <p><strong>Website:</strong> ${scammerWebsite}</p>
-                <p><strong>Payment Mode:</strong> ${scammerPaymentMode}</p>
-                <p><strong>Victim Financial Loss:</strong> ₹${victimFinancialLoss}</p>
-                <p><strong>Social Media Links:</strong> ${scammerSocialMediaLinks}</p>
-            ;
-            
-            document.getElementById("report-output").innerHTML = report;
-            document.getElementById("generated-report").classList.remove("hidden");
-        });
+        function generateReport() {
+            return `Cyber Crime Report\n\nComplainant Details\nName: ${document.getElementById('fullName').value}\nContact: ${document.getElementById('contact').value}\nEmail: ${document.getElementById('email').value}\n\nVictim Details\nName: ${document.getElementById('victimName').value}\nContact: ${document.getElementById('victimContact').value}\nEmail: ${document.getElementById('victimEmail').value}\n\nIncident Details\nCrime Type: ${document.getElementById('crimeType').value}\nDescription: ${document.getElementById('description').value}\n\nCriminal Details\nName: ${document.getElementById('criminalName').value}\nContact: ${document.getElementById('criminalContact').value}\nEmail: ${document.getElementById('criminalEmail').value}\nIP Address: ${document.getElementById('criminalIP').value}\nDevices: ${document.getElementById('criminalDevices').value}\nSIM Carrier: ${document.getElementById('criminalSIM').value}\nState: ${document.getElementById('criminalState').value}\nCity: ${document.getElementById('criminalCity').value}\nOther Info: ${document.getElementById('otherInfo').value}\n\nInvestigation Officer\nName: ${document.getElementById('officerName').value}\nDesignation: ${document.getElementById('officerDesignation').value}\nContact: ${document.getElementById('officerContact').value}`;
+        }
+        function downloadTxt() {
+            const textData = generateReport();
+            const blob = new Blob([textData], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "Cyber_Crime_Report.txt";
+            link.click();
+        }
+        function downloadPdf() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(12);
+            doc.text(generateReport(), 10, 10);
+            doc.save("Cyber_Crime_Report.pdf");
+        }
     </script>
-    <footer class=" text-black p-4 text-center mt-8">
-        <p class="text-sm">© 2025, Cybercrime Report Generator. Developed by <strong>Shubham (Vedant Hondre)</strong>. All rights reserved.</p>
-    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
